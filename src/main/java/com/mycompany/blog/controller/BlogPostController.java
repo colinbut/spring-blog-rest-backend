@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
 
+
 @RestController("/blogPost")
 public class BlogPostController {
 
@@ -25,7 +26,7 @@ public class BlogPostController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public BlogPost getBlogPost(@PathParam("blogId") Integer blogId) {
-        return blogRepository.findOne(blogId.toString());
+        return blogRepository.findByBlogId(blogId);
     }
 
     @RequestMapping(method = RequestMethod.POST)

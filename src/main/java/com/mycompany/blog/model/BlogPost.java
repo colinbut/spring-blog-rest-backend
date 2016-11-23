@@ -17,9 +17,18 @@ public class BlogPost {
     @Id
     private String id;
 
+    private Integer blogId;
     private Date postedDate;
     private String introText;
     private String blogText;
+
+    public Integer getBlogId() {
+        return blogId;
+    }
+
+    public void setBlogId(Integer blogId) {
+        this.blogId = blogId;
+    }
 
     public Date getPostedDate() {
         return postedDate;
@@ -46,16 +55,6 @@ public class BlogPost {
     }
 
     @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("BlogPost{");
-        sb.append("postedDate=").append(postedDate);
-        sb.append(", introText='").append(introText).append('\'');
-        sb.append(", blogText='").append(blogText).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -64,13 +63,28 @@ public class BlogPost {
             return false;
         }
         BlogPost blogPost = (BlogPost) o;
-        return Objects.equals(postedDate, blogPost.postedDate) &&
+        return Objects.equals(blogId, blogPost.blogId) &&
+            Objects.equals(postedDate, blogPost.postedDate) &&
             Objects.equals(introText, blogPost.introText) &&
             Objects.equals(blogText, blogPost.blogText);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(postedDate, introText, blogText);
+        return Objects.hash(blogId, postedDate, introText, blogText);
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("BlogPost{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", blogId=").append(blogId);
+        sb.append(", postedDate=").append(postedDate);
+        sb.append(", introText='").append(introText).append('\'');
+        sb.append(", blogText='").append(blogText).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+
+
 }
