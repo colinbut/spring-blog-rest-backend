@@ -20,7 +20,7 @@ public class BlogPostController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public BlogPost getBlogPost(@PathParam("blogId") int blogId) {
+    public BlogPost getBlogPost(@PathParam("blogId") Integer blogId) {
         BlogPost blogPost = new BlogPost();
         blogPost.setPostedDate(new Date());
         blogPost.setIntroText("Intro");

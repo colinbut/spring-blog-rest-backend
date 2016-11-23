@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController("/blogList")
+@RestController
 public class BlogListController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/blogList", method = RequestMethod.GET)
     public List<BlogPost> listBlogs() {
         return new ArrayList<>();
     }
