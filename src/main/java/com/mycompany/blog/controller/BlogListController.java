@@ -18,7 +18,7 @@ public class BlogListController {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<BlogPost> listBlogs() {
-        return new ArrayList<BlogPost>();
+        return new ArrayList<>();
     }
 
 }
