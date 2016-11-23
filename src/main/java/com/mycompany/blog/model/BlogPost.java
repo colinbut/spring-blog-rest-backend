@@ -6,6 +6,7 @@
 package com.mycompany.blog.model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class BlogPost {
 
@@ -45,5 +46,24 @@ public class BlogPost {
         sb.append(", blogText='").append(blogText).append('\'');
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        BlogPost blogPost = (BlogPost) o;
+        return Objects.equals(postedDate, blogPost.postedDate) &&
+            Objects.equals(introText, blogPost.introText) &&
+            Objects.equals(blogText, blogPost.blogText);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(postedDate, introText, blogText);
     }
 }
